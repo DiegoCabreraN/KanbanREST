@@ -1,5 +1,5 @@
 // El documento dotenv funciona para obtener las variables
-// de ambiente para el desarrollo del proyecto.
+// de ambiente para el desarrollo del proyecto
 
 require('dotenv').config();
 
