@@ -14,17 +14,14 @@ const conectionOptions = {
   useUnifiedTopology: true,
 };
 
+// Creacion de conexion a la base de datos
 mongoose.connect(
-  mongoUrl.concat('/boards?retryWrites=true&w=majority'),
+  mongoUrl.concat('/kanban?retryWrites=true&w=majority'),
   conectionOptions,
 );
 
-const userConnection = mongoose.createConnection(
-  mongoUrl.concat('/users?retryWrites=true&w=majority'),
-  conectionOptions,
-);
-
-const User = userConnection.model('User', UserSchema);
+// Creacion de Colecciones
+const User = mongoose.model('User', UserSchema);
 
 const Board = mongoose.model('Board', BoardSchema);
 
@@ -32,6 +29,7 @@ const Column = mongoose.model('Column', ColumnSchema);
 
 const Task = mongoose.model('Task', TaskSchema);
 
+// Exportacion de Colecciones
 module.exports = {
   User,
   Board,

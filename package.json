@@ -1,12 +1,12 @@
 {
-  "name": "trelloBackend",
+  "name": "kanban-rest",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "start": "node index.js"
   },
-  "author": "",
+  "author": "diegocabreran",
   "license": "ISC",
   "dependencies": {
     "body-parser": "1.19.0",

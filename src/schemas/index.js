@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
+// Creacion de Esquema de Documentos
+// Especificacion de Tipo de datos para cada campo
 const UserSchema = new Schema({
   mail: String,
   password: String,
@@ -27,6 +29,7 @@ const TaskSchema = new Schema({
   boardId: String,
 });
 
+// Exportacion de Esquemas
 module.exports = {
   UserSchema,
   BoardSchema,
