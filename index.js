@@ -33,6 +33,7 @@ app.listen(parseInt(serverPort, 10), () => {
 app.post('/create/:type', async (req, res) => {
   // Evaluar el tipo de creacion a realizar
   if (req.params.type === 'user') {
+    console.log(req.body);
     // Checar que no exista un usuario con este email
     const query = await connections.User.find(
       {
@@ -98,20 +99,20 @@ app.post('/create/:type', async (req, res) => {
   res.end();
 });
 
-app.post('/get/:type', async (req, res) => {
+app.get('/:type', async (req, res) => {
   if (req.params.type === 'user') {
     // Obtener Usuario y verificar que los datos concuerden
     const query = await connections.User.findOne(
       {
-        username: req.body.username,
+        mail: req.body.mail,
       },
     );
     if (query
-        && query.username === req.body.username
+        && query.mail === req.body.mail
         && query.password === req.body.password
     ) {
       // Devolver el id del objeto para fines de UI
-      res.status(200).send(query[0]._id);
+      res.status(200).send(query._id);
     } else {
       // Devolver error
       res.status(500).end();
